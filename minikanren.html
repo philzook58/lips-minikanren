@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/@jcubic/lips@beta/dist/lips.min.js" bootstrap></script>
+        <script type="text/x-lips">
+            (print "hello world")
+           ;; (load "faster-minikanren/mk-vicare.scm")
+            ;;(load "faster-minikanren/mk.scm")
+            (load "miniKanren-with-symbolic-constraints/mk.scm")
+            (run 1 (q) (== q 1))
+
+        </script>
+    </head>
+</html>

@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <!-- <script src="https://unpkg.com/@jcubic/lips@beta"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/@jcubic/lips@beta/dist/lips.min.js" bootstrap></script>
+<!--
+        <script type="text/x-lips" src="microKanren/microKanren.scm"></script>
+        <script type="text/x-lips" src="microKanren/miniKanren-wrappers.scm"></script> -->
+        <script type="text/x-lips">
+            ;; (load "examples/helpers.lips") ;; helpers file have definition of --> macro
+            ;;(--> console (log "hello world!"))
+            (define log (. console 'log))
+            (log "hello world")
+            (load "microKanren/microKanren.scm")
+            (load "microKanren/miniKanren-wrappers.scm")
+            (print (run 1 (q) (fresh (x y z) (== q y) (== x z) (== 3 y))))
+            (print (run 2 (q)
+            (fresh (w x y)
+              (conde
+                ((== `(,x ,w ,x) q)
+                 (== y w))
+                ((== `(,w ,x ,w) q)
+                 (== y w))))))
+            (define anyo
+                 (lambda (g)
+                        (conde
+                         (g)
+                         ((anyo g)))))
+
+            (print (run 3 (q)
+            (let ((nevero (anyo (== #f #t))))
+              (conde
+                ((== 1 q))
+                (nevero)
+                ((conde
+                   ((== 2 q))
+                   (nevero)
+                   ((== 3 q))))))))
+        </script>
+    </head>
+</html>
