@@ -1,12 +1,14 @@
 To serve `python3 -m http.server`
 
+
+
+- Microkanren Implementation <https://github.com/jasonhemann/microKanren>
+- Minikanren Implementation <https://github.com/webyrd/miniKanren-with-symbolic-constraints>
+- Faster-minikanren seems hopeless.
+
 Minikanren examples <https://io.livecode.ch/learn/webyrd/webmk>
 
-Microkanren Implementation <https://github.com/jasonhemann/microKanren>
-Minikanren Implementation <https://github.com/webyrd/miniKanren-with-symbolic-constraints>
-Faster-minikanren seems hopeless.
-
-Microkanren needs a couple changes.. Change the usage of `assp` to
+Microkanren needs a couple changes to get working with lips. Change the usage of `assp` to
 
 ```
 (define (walk u s)
